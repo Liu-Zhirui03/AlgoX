@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AlgoX / Algorithm playground</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script src="/assets/status.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#algorithm-library">Skip to algorithms</a>
+    <div class="site-shell">
+      <nav class="topbar" aria-label="Main navigation">
+        <a class="brand" aria-label="AlgoX home" href="#top"><img class="brand-icon" src="/assets/icons/algox-mark.svg" width="52" height="52" alt="" aria-hidden="true"></a>
+        <div class="nav-links"><a href="#connection-panel">Connection</a></div>
+      </nav>
+      <header class="hero" id="top">
+        <span class="spark spark-one" aria-hidden="true">+</span><span class="spark spark-two" aria-hidden="true">0</span>
+        <span class="spark spark-three" aria-hidden="true">*</span><span class="spark spark-four" aria-hidden="true">1</span>
+        <p class="eyebrow">A little curiosity. A lot of possibility.</p>
+        <pre class="ascii-logo" aria-hidden="true">  10   0      1010   0101  0    1
+ 1  0  1     1      0    1  0  1
+101010 0     0  101 1    0   01
+0    1 1     1    0 0    1  0  1
+1    0 01010  1010   0101  0    1</pre>
+        <h1>Algorithms, a little less abstract.</h1>
+        <p class="hero-copy">Bring your numbers. Read the code. Make it click.</p>
+      </header>
+      <main id="algorithm-library" tabindex="-1">
+        <section class="algorithm-library" aria-labelledby="library-title">
+          <p class="eyebrow">Find your next idea</p><h2 id="library-title">The algorithm library</h2>
+          <div class="library-categories">
+            <details class="library-category" id="sorting-searching">
+              <summary><span class="category-number" aria-hidden="true">01</span><h3>Sorting and Searching Algorithms</h3><span class="category-meta">5 algorithms</span><span class="category-toggle" aria-hidden="true"></span></summary>
+              <div class="category-content">
+                <a class="algorithm-tile" href="/algorithms/bubble-sort"><div><span class="tag">SORTING</span><h4>Bubble Sort</h4><p>Compare neighbors, swap values, and watch order emerge.</p></div><span class="tile-arrow" aria-hidden="true">&gt;</span></a>
+                <a class="algorithm-tile" href="/algorithms/quick-sort"><div><span class="tag">SORTING</span><h4>Quick Sort</h4><p>Partition around a pivot, then sort the smaller sections.</p></div><span class="tile-arrow" aria-hidden="true">&gt;</span></a>
+                <a class="algorithm-tile" href="/algorithms/merge-sort"><div><span class="tag">SORTING</span><h4>Merge Sort</h4><p>Split the list into smaller parts, then merge them in order.</p></div><span class="tile-arrow" aria-hidden="true">&gt;</span></a>
+                <article class="algorithm-tile algorithm-tile-planned"><div><span class="tag">SEARCHING</span><h4>Binary Search</h4><p>Find a target in sorted data by halving the search range.</p><span class="tile-features">Coming soon</span></div></article>
+                <article class="algorithm-tile algorithm-tile-planned"><div><span class="tag">SEARCHING</span><h4>Hash Search</h4><p>Use a hash table to locate a key and explore collisions.</p><span class="tile-features">Coming soon</span></div></article>
+              </div>
+            </details>
+            <details class="library-category" id="greedy">
+              <summary><span class="category-number" aria-hidden="true">02</span><h3>Greedy Algorithms</h3><span class="category-meta">0 algorithms</span><span class="category-toggle" aria-hidden="true"></span></summary>
+              <div class="category-content"><p class="empty-category">No algorithms added yet. This library is ready for future additions.</p></div>
+            </details>
+            <details class="library-category" id="divide-conquer">
+              <summary><span class="category-number" aria-hidden="true">03</span><h3>Divide and Conquer Algorithms</h3><span class="category-meta">0 algorithms</span><span class="category-toggle" aria-hidden="true"></span></summary>
+              <div class="category-content"><p class="empty-category">No algorithms added yet. This library is ready for future additions.</p></div>
+            </details>
+            <details class="library-category" id="dynamic-programming">
+              <summary><span class="category-number" aria-hidden="true">04</span><h3>Dynamic Programming</h3><span class="category-meta">0 algorithms</span><span class="category-toggle" aria-hidden="true"></span></summary>
+              <div class="category-content"><p class="empty-category">No algorithms added yet. This library is ready for future additions.</p></div>
+            </details>
+            <details class="library-category" id="backtracking-branch-bound">
+              <summary><span class="category-number" aria-hidden="true">05</span><h3>Backtracking and Branch and Bound Methods</h3><span class="category-meta">0 algorithms</span><span class="category-toggle" aria-hidden="true"></span></summary>
+              <div class="category-content"><p class="empty-category">No algorithms added yet. This library is ready for future additions.</p></div>
+            </details>
+          </div>
+        </section>
+        <section id="connection-panel" class="connection-panel" aria-labelledby="connection-title" aria-busy="true">
+          <div class="connection-summary"><p class="eyebrow">Your local sidekick</p><div role="status" aria-live="polite" aria-atomic="true"><h2 id="connection-title" data-state="checking">Checking connection...</h2><p id="status-message">Contacting your local Ollama service.</p></div></div>
+          <dl class="connection-details"><div><dt>Model</dt><dd>qwen2.5-coder:3b</dd></div><div><dt>Renderer</dt><dd>Canvas <span class="planned-label">LIVE</span></dd></div></dl>
+          <button id="check-button" class="secondary-button" type="button" disabled>Checking...</button>
+          <noscript><p>Enable JavaScript to check the connection.</p></noscript>
+        </section>
+      </main>
+      <footer class="site-footer"><a class="brand" href="#top">AlgoX<span class="accent-pink" aria-hidden="true">_</span></a></footer>
+    </div>
+  </body>
+</html>

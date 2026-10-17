@@ -1,0 +1,36 @@
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+
+# Dependencies and local environments
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Generated output and caches
+dist/
+build/
+coverage/
+.next/
+.vite/
+.cache/
+.pytest_cache/
+*.tsbuildinfo
+*.log
+
+# Operating system and personal editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/launch.json

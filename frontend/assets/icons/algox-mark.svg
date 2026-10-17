@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="56" height="56" shape-rendering="crispEdges">
+  <title>AlgoX interwoven A and X pixel monogram</title>
+  <desc>A green A joins a blue X at a shared grid junction on a light gray pixel tile.</desc>
+  <path fill="#f1f3f4" d="M8 4H48V8H52V48H48V52H8V48H4V8H8Z"/>
+  <g fill="#0F9D58">
+    <path d="M12 12H24V16H12Z M8 16H12V40H8Z M24 16H28V40H24Z M12 24H36V28H12Z"/>
+    <path d="M0 44H4V48H0Z"/>
+  </g>
+  <g fill="#1A73E8">
+    <path d="M28 12H32V16H28Z M44 12H48V16H44Z M32 16H36V20H32Z M40 16H44V20H40Z M36 20H40V28H36Z M32 28H36V32H32Z M40 28H44V32H40Z M28 32H32V40H28Z M44 32H48V40H44Z"/>
+    <path d="M48 0H52V4H48Z"/>
+  </g>
+  <path fill="#075d3a" d="M24 24H28V28H24Z"/>
+</svg>

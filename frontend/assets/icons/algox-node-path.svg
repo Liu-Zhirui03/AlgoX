@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="56" height="56" shape-rendering="crispEdges">
+  <title>AlgoX pixel nodes and paths</title>
+  <desc>Four square nodes joined by stepped green and blue paths form a miniature X-shaped graph.</desc>
+  <path fill="#f1f3f4" d="M8 4H48V8H52V48H48V52H8V48H4V8H8Z"/>
+  <g fill="none" stroke-width="4" stroke-linejoin="miter" stroke-linecap="square">
+    <path stroke="#0F9D58" d="M14 14H18V22H26V30H34V38H42V42"/>
+    <path stroke="#1A73E8" d="M42 14H38V22H30V30H22V38H14V42"/>
+  </g>
+  <path fill="#075d3a" d="M26 28H30V32H26Z"/>
+  <g fill="#0F9D58">
+    <path d="M8 8H20V20H8Z M36 36H48V48H36Z"/>
+  </g>
+  <g fill="#1A73E8">
+    <path d="M36 8H48V20H36Z M8 36H20V48H8Z"/>
+  </g>
+  <g fill="#f1f3f4">
+    <path d="M12 12H16V16H12Z M40 12H44V16H40Z M12 40H16V44H12Z M40 40H44V44H40Z"/>
+  </g>
+</svg>
