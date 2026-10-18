@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kruskal's and Prim's Algorithms / AlgoX</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script src="/assets/graph-renderer.js" defer></script>
+    <script src="/assets/playback.js" defer></script>
+    <script src="/assets/graph-visualization.js" defer></script>
+    <script src="/assets/graph.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#playground">Skip to playground</a>
+    <div class="site-shell">
+      <nav class="topbar" aria-label="Main navigation">
+        <a class="brand" aria-label="AlgoX home" href="/"><img class="brand-icon" src="/assets/icons/algox-mark.svg" width="52" height="52" alt="" aria-hidden="true"></a>
+      </nav>
+      <header class="algorithm-header" id="top">
+        <a class="back-link" href="/">&lt; All algorithms</a>
+        <p class="eyebrow">02 / Greedy algorithms</p>
+        <h1>Kruskal's and Prim's Algorithms</h1>
+        <p>Build a weighted graph, read the Python, and explore each greedy decision.</p>
+      </header>
+      <main id="playground" tabindex="-1">
+        <section id="algorithm-example" data-algorithm-id="kruskal" data-algorithm-title="Kruskal's and Prim's Algorithms" data-renderer="weighted-graph" class="workspace" aria-labelledby="example-title" aria-busy="true">
+          <div class="window-bar"><span><span class="window-dots" aria-hidden="true">&#9632; &#9632; &#9632;</span> ALGOX / PLAYGROUND</span><span class="version-label">02 / GREEDY</span></div>
+          <div class="workspace-heading"><div><p class="eyebrow">Built-in reference example</p><h2 id="example-title">Kruskal's and Prim's Algorithms</h2></div><span class="tag">PYTHON</span></div>
+          <div class="workspace-grid">
+            <div class="controls-pane">
+              <p class="pane-label"><span class="accent-cyan">01</span> / TRY AN INPUT</p>
+              <p class="algorithm-description">Compare two ways to build a minimum spanning tree. Disconnected graphs produce a minimum spanning forest. Negative edge weights are allowed.</p>
+              <form id="graph-form" novalidate>
+                <label for="algorithm-select">Algorithm</label><select id="algorithm-select"><option value="kruskal">Kruskal</option><option value="prim">Prim</option></select>
+                <label for="nodes-input">Nodes</label>
+                <p id="nodes-help" class="helper-text">1-10 unique labels, separated by commas or spaces. Use 1-8 letters, digits, or underscores per label.</p>
+                <div class="input-shell"><input id="nodes-input" type="text" value="A, B, C, D, E" maxlength="120" aria-describedby="nodes-help input-error" autocomplete="off" spellcheck="false"></div>
+                <label for="edges-input">Undirected weighted edges</label>
+                <p id="edges-help" class="helper-text">One edge per line: A B 4. Up to 30 edges; integer weights from -1000000 to 1000000. No self-loops or duplicate pairs. Leave empty for isolated nodes.</p>
+                <textarea id="edges-input" rows="7" maxlength="1600" aria-describedby="edges-help input-error" spellcheck="false">A B 4
+A C 2
+B C 1
+B D 5
+C D 8
+C E 10
+D E 2</textarea>
+                <div id="start-field"><label for="start-input">Start node</label><div class="input-shell"><input id="start-input" type="text" value="A" maxlength="8" aria-describedby="input-error" autocomplete="off" spellcheck="false"></div></div>
+                <p id="input-error" class="input-error" role="alert" hidden></p>
+                <div class="input-actions"><button id="run-button" type="submit">Run algorithm <span aria-hidden="true">&gt;</span></button><button id="use-example" type="button" class="secondary-button">Use example</button></div>
+              </form>
+              <a class="hero-link visualization-jump" href="#visualization">See visualization below v</a>
+              <div class="result-panel"><p class="pane-label"><span class="accent-pink">02</span> / THE RESULT</p><dl class="results"><div><dt>Graph input</dt><dd><code id="example-input">Loading...</code></dd></div><div><dt>Result</dt><dd class="result-output"><code id="example-output" class="graph-output">Loading...</code></dd></div></dl></div>
+              <p id="example-message" class="feedback" role="status" aria-live="polite">Loading Kruskal's and Prim's Algorithms example...</p>
+              <noscript><p>Enable JavaScript to run the example.</p></noscript>
+            </div>
+            <div class="editor-pane">
+              <div class="editor-header"><h3 id="code-title"><span class="file-icon" aria-hidden="true">{ }</span> kruskal.py</h3><button id="copy-example" type="button" class="copy-button" disabled>Copy Python</button></div>
+              <pre class="code-editor" tabindex="0" aria-labelledby="code-title"><code id="example-code">Loading Python example...</code></pre>
+              <div class="editor-footer"><span>PYTHON / REFERENCE</span><span>UTF-8</span></div>
+            </div>
+          </div>
+          <div class="workspace-footer"><span class="tiny-cross" aria-hidden="true">+</span><p>Built-in example. Runs locally. Explore its execution in the visualization below.</p></div>
+        </section>
+        <section id="visualization" class="workspace visualization-panel" aria-labelledby="visualization-title">
+          <div class="window-bar"><span>ALGOX / EXECUTION TRACE</span><span>BUILT-IN ENGINE</span></div>
+          <div class="workspace-heading"><div><p class="eyebrow">Watch the actual process</p><h2 id="visualization-title">Choose edges. Connect nodes.</h2></div><span class="tag" id="trace-action">WAITING</span></div>
+          <div class="visualization-body">
+            <div class="trace-meta"><span id="trace-count">No trace loaded</span><span>Edges inspected: <strong id="trace-comparisons">0</strong> / Edges accepted: <strong id="trace-swaps">0</strong></span></div>
+            <div class="canvas-frame"><canvas id="trace-canvas" data-metric-action="accept" role="img" aria-label="Kruskal's and Prim's Algorithms visualization awaiting input" aria-describedby="trace-explanation trace-values">The current graph state and step explanation are available below.</canvas></div>
+            <div class="trace-legend"><span><i class="legend-compare" aria-hidden="true"></i>Current node / edge</span><span><i class="legend-sorted" aria-hidden="true"></i>Selected edge / visited node</span><span><i class="legend-rejected" aria-hidden="true"></i>Rejected cycle edge</span></div>
+            <div class="trace-explanation" role="status" aria-live="polite" aria-atomic="true"><p id="trace-explanation">Submit a graph to start.</p><code id="trace-values">No values loaded</code></div>
+            <div class="playback-controls"><button id="trace-play" type="button" aria-pressed="false" disabled>Play</button><button id="trace-previous" class="secondary-button" type="button" disabled>Previous</button><button id="trace-next" class="secondary-button" type="button" disabled>Next</button><button id="trace-reset" class="secondary-button" type="button" disabled>Reset</button><label for="trace-speed">Speed <select id="trace-speed" disabled><option value="0.5">0.5x</option><option value="1" selected>1x</option><option value="2">2x</option><option value="4">4x</option></select></label></div>
+            <label class="scrubber-label" for="trace-progress">Move to a step</label><input id="trace-progress" type="range" min="0" max="0" value="0" disabled>
+            <p class="helper-text">Edge IDs refer to input lines, starting at 0. The graph layout stays fixed during playback. Scroll the graph on narrow screens. This built-in walkthrough runs locally without Ollama.</p>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer"><a class="brand" href="#top">AlgoX<span class="accent-pink" aria-hidden="true">_</span></a></footer>
+    </div>
+  </body>
+</html>

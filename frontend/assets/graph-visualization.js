@@ -1,0 +1,54 @@
+let algorithmTitle = document.querySelector("[data-algorithm-id]").dataset.algorithmTitle;
+const traceCanvas = document.querySelector("#trace-canvas");
+const graphView = new GraphCanvas(traceCanvas);
+const playButton = document.querySelector("#trace-play");
+const previousButton = document.querySelector("#trace-previous");
+const nextButton = document.querySelector("#trace-next");
+const resetButton = document.querySelector("#trace-reset");
+const progressSlider = document.querySelector("#trace-progress");
+const speedSelect = document.querySelector("#trace-speed");
+const explanation = document.querySelector("#trace-explanation");
+const currentValues = document.querySelector("#trace-values");
+const stepCount = document.querySelector("#trace-count");
+const actionLabel = document.querySelector("#trace-action");
+const player = new TracePlayer((step, state, animate) => {
+  graphView.render(step);
+  const empty = !step;
+  playButton.disabled = empty;
+  previousButton.disabled = empty || state.index === 0;
+  nextButton.disabled = empty || state.index === state.steps.length - 1;
+  resetButton.disabled = empty;
+  progressSlider.disabled = empty;
+  speedSelect.disabled = empty;
+  playButton.textContent = state.playing ? "Pause" : (step?.action === "complete" ? "Replay" : "Play");
+  playButton.setAttribute("aria-pressed", String(state.playing));
+  progressSlider.max = Math.max(0, state.steps.length - 1);
+  progressSlider.value = state.index;
+  progressSlider.setAttribute("aria-valuetext", empty ? "No steps" : `Step ${state.index + 1} of ${state.steps.length}`);
+  stepCount.textContent = empty ? "No trace loaded" : `Step ${state.index + 1} / ${state.steps.length}`;
+  actionLabel.textContent = step ? step.action.replaceAll("_", " ").toUpperCase() : "WAITING";
+  explanation.textContent = step?.explanation || "Submit a graph above to generate a fresh walkthrough.";
+  const data = step?.stateData;
+  if (!data) currentValues.textContent = "No graph loaded";
+  else if (Object.keys(data.distances).length) {
+    currentValues.textContent = data.nodes.map(node => `${node}: distance ${data.distances[node] === null ? "INF" : data.distances[node]}, predecessor ${data.parents[node] ?? "none"}`).join(" / ");
+  } else {
+    const groups = data.components.map(group => `{${group.join(", ")}}`).join(" ");
+    const queue = data.edgeOrder.map(index => `#${index} (${data.edges[index].weight})`).join(", ");
+    currentValues.textContent = `Selected edges: ${data.selectedEdges.map(index => "#" + index).join(", ") || "none"} / Total weight: ${data.totalWeight} / Components: ${groups || "none yet"}${queue ? " / Candidate edges: " + queue : ""}`;
+  }
+  document.querySelector("#trace-comparisons").textContent = state.steps.slice(0, state.index + 1).filter(item => item.action === "inspect").length;
+  document.querySelector("#trace-swaps").textContent = state.steps.slice(0, state.index + 1).filter(item => item.action === traceCanvas.dataset.metricAction).length;
+  traceCanvas.setAttribute("aria-label", step ? `${algorithmTitle}: ${step.explanation}` : `${algorithmTitle} visualization awaiting input`);
+});
+playButton.addEventListener("click", () => player.toggle());
+previousButton.addEventListener("click", () => player.seek(player.index - 1));
+nextButton.addEventListener("click", () => player.next());
+resetButton.addEventListener("click", () => player.seek(0));
+progressSlider.addEventListener("input", () => player.seek(Number(progressSlider.value)));
+speedSelect.addEventListener("change", () => player.setSpeed(Number(speedSelect.value)));
+document.addEventListener("algox:trace-start", () => player.clear());
+document.addEventListener("algox:trace", event => player.load(event.detail));
+document.addEventListener("algox:input-edited", () => player.pause());
+document.addEventListener("visibilitychange", () => { if (document.hidden) player.pause(); });
+player.emit();

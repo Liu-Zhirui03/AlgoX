@@ -131,9 +131,8 @@ The home page groups algorithms under five expandable parent libraries:
 
 Sorting and Searching Algorithms lists Bubble Sort, Quick Sort, Merge Sort,
 Binary Search, and Hash Search, in that order. Bubble Sort, Quick Sort, and
-Merge Sort have working playgrounds. Binary Search and Hash Search are marked
-Coming soon until implemented.
-The other parent libraries currently have no algorithms. Add implementations
+Merge Sort, Binary Search, and Hash Search have working playgrounds.
+Greedy Algorithms has working playgrounds for all selected entries; the remaining parent libraries are empty. Add implementations
 individually after agreeing on their scope. Parent libraries expand with mouse or keyboard. Algorithm cards
 remain the only home-page links into playgrounds. Connection status stays below
 all five libraries.
@@ -164,3 +163,60 @@ All support play/pause, previous/next, reset, seeking, speed, negatives, and dup
 Both are separate registered Python adapters under `backend/algorithms/`, with
 pure references in `examples/`. They use the existing generic API routes.
 These playgrounds run independently of Ollama; model generation remains planned.
+
+## Searching playground milestone
+
+Completed: separate Binary Search and Hash Search adapters, Python references,
+input controls, Canvas renderers, and full shared playback. Binary Search
+requires ascending data and returns the first matching index. Hash Search builds
+a modulo-based table with 3-16 buckets, resolves collisions with separate chaining,
+and returns the first matching original input index. Missing targets return -1.
+
+The first library now has five working playgrounds. Search views include target
+input, comparisons, current bounds or buckets, found/not-found feedback, and
+copyable code. All five playgrounds remain deterministic and independent of Ollama.
+
+## Greedy library selection
+
+The Greedy Algorithms library contains these entries, in order:
+
+1. Dijkstra's Algorithm
+2. Kruskal's and Prim's Algorithms
+3. Huffman Coding
+4. Activity Selection and Interval Scheduling
+5. Fractional Knapsack Algorithm
+
+Kruskal's and Prim's remain grouped under one entry, as requested. All selected
+Greedy entries now have working playgrounds with validated custom inputs, Python
+references, execution traces, renderers, and shared playback controls.
+
+## First Greedy playgrounds
+
+Completed: Dijkstra, Kruskal, and Prim are separate registered modules with
+copyable Python references, graph validation, independent execution snapshots,
+and a shared weighted-graph renderer. The home library links to Dijkstra and a
+combined Kruskal/Prim playground with an algorithm selector.
+
+Graphs are undirected, with 1-10 unique labeled nodes and up to 30 integer-weight
+edges. Self-loops and parallel edges are rejected. Dijkstra requires nonnegative
+weights; both MST algorithms allow negative weights. Dijkstra reports unreachable
+nodes explicitly. Kruskal and Prim return a minimum spanning forest for a
+disconnected graph, including isolated vertices. Equal priorities use input order.
+
+All support custom input, example reset, code copying, step explanations,
+play/pause, previous/next, reset, speed, seeking, and replay. Ollama is not used.
+
+## Remaining Greedy playgrounds
+
+Completed: Huffman Coding, Activity Selection and Interval Scheduling, and
+Fractional Knapsack. Each has a separate registered Python adapter and reference,
+custom inputs, state-specific Canvas rendering, explanations, code copying,
+and the existing playback controls. All selected Greedy library entries now open
+working playgrounds; category counts and feature-summary lines remain omitted.
+
+Huffman accepts positive symbol frequencies and shows forest merges and binary
+code assignment, including the single-symbol code 0 convention. Activity Selection
+maximizes the number of unweighted, half-open intervals using earliest finish.
+Fractional Knapsack sorts by exact value-to-weight ratios and permits partial
+items. Zero-capacity and zero-value cases are supported. These algorithms remain
+built-in deterministic examples; Ollama generation is still planned.

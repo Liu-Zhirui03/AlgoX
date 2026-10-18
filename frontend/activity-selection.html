@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Activity Selection and Interval Scheduling / AlgoX</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script src="/assets/greedy-renderer.js" defer></script>
+    <script src="/assets/playback.js" defer></script>
+    <script src="/assets/greedy-visualization.js" defer></script>
+    <script src="/assets/greedy.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#playground">Skip to playground</a>
+    <div class="site-shell">
+      <nav class="topbar" aria-label="Main navigation">
+        <a class="brand" aria-label="AlgoX home" href="/"><img class="brand-icon" src="/assets/icons/algox-mark.svg" width="52" height="52" alt="" aria-hidden="true"></a>
+      </nav>
+      <header class="algorithm-header" id="top">
+        <a class="back-link" href="/">&lt; All algorithms</a>
+        <p class="eyebrow">02 / Greedy algorithms</p>
+        <h1>Activity Selection and Interval Scheduling</h1>
+        <p>Try custom input, read the Python, and explore each greedy decision.</p>
+      </header>
+      <main id="playground" tabindex="-1">
+        <section id="algorithm-example" data-algorithm-id="activity-selection" data-algorithm-title="Activity Selection and Interval Scheduling" data-renderer="activity-timeline" class="workspace" aria-labelledby="example-title" aria-busy="true">
+          <div class="window-bar"><span><span class="window-dots" aria-hidden="true">&#9632; &#9632; &#9632;</span> ALGOX / PLAYGROUND</span><span class="version-label">02 / GREEDY</span></div>
+          <div class="workspace-heading"><div><p class="eyebrow">Built-in reference example</p><h2 id="example-title">Activity Selection and Interval Scheduling</h2></div><span class="tag">PYTHON</span></div>
+          <div class="workspace-grid">
+            <div class="controls-pane">
+              <p class="pane-label"><span class="accent-cyan">01</span> / TRY AN INPUT</p>
+              <p class="algorithm-description">Select the maximum number of non-overlapping activities by earliest finishing time. These are unweighted intervals; touching endpoints are compatible.</p>
+              <form id="greedy-form" novalidate>
+                <label for="items-input">Activities: name start finish</label>
+                <p id="items-help" class="helper-text">1-12 uniquely named activities. One per line, such as A 1 4. Integer times: 0-1000000, with start strictly before finish. Labels use 1-8 letters, digits, or underscores.</p>
+                <textarea id="items-input" rows="7" maxlength="1600" aria-describedby="items-help input-error" spellcheck="false">A 1 4
+B 3 5
+C 0 6
+D 5 7
+E 3 9
+F 8 11
+G 12 16</textarea>
+
+                <p id="input-error" class="input-error" role="alert" hidden></p>
+                <div class="input-actions"><button id="run-button" type="submit">Run algorithm <span aria-hidden="true">&gt;</span></button><button id="use-example" type="button" class="secondary-button">Use example</button></div>
+              </form>
+              <a class="hero-link visualization-jump" href="#visualization">See visualization below v</a>
+              <div class="result-panel"><p class="pane-label"><span class="accent-pink">02</span> / THE RESULT</p><dl class="results"><div><dt>Submitted input</dt><dd><code id="example-input">Loading...</code></dd></div><div><dt>Result</dt><dd class="result-output"><code id="example-output" class="graph-output">Loading...</code></dd></div></dl></div>
+              <p id="example-message" class="feedback" role="status" aria-live="polite">Loading Activity Selection and Interval Scheduling example...</p>
+              <noscript><p>Enable JavaScript to run the example.</p></noscript>
+            </div>
+            <div class="editor-pane">
+              <div class="editor-header"><h3 id="code-title"><span class="file-icon" aria-hidden="true">{ }</span> activity_selection.py</h3><button id="copy-example" type="button" class="copy-button" disabled>Copy Python</button></div>
+              <pre class="code-editor" tabindex="0" aria-labelledby="code-title"><code id="example-code">Loading Python example...</code></pre>
+              <div class="editor-footer"><span>PYTHON / REFERENCE</span><span>UTF-8</span></div>
+            </div>
+          </div>
+          <div class="workspace-footer"><span class="tiny-cross" aria-hidden="true">+</span><p>Built-in example. Runs locally. Explore its execution in the visualization below.</p></div>
+        </section>
+        <section id="visualization" class="workspace visualization-panel" aria-labelledby="visualization-title">
+          <div class="window-bar"><span>ALGOX / EXECUTION TRACE</span><span>BUILT-IN ENGINE</span></div>
+          <div class="workspace-heading"><div><p class="eyebrow">Watch the actual process</p><h2 id="visualization-title">Sort. Choose. Schedule.</h2></div><span class="tag" id="trace-action">WAITING</span></div>
+          <div class="visualization-body">
+            <div class="trace-meta"><span id="trace-count">No trace loaded</span><span>Activities considered: <strong id="trace-comparisons">0</strong> / Accepted: <strong id="trace-swaps">0</strong></span></div>
+            <div class="canvas-frame"><canvas id="trace-canvas" data-metric-action="accept" data-inspect-action="consider" role="img" aria-label="Activity Selection and Interval Scheduling visualization awaiting input" aria-describedby="trace-explanation trace-values">The current state and step explanation are available below.</canvas></div>
+            <div class="trace-legend"><span><i class="legend-compare" aria-hidden="true"></i>Current choice</span><span><i class="legend-sorted" aria-hidden="true"></i>Accepted / completed</span><span><i class="legend-rejected" aria-hidden="true"></i>Rejected interval</span><span>Scroll the visualization for larger inputs.</span></div>
+            <div class="trace-explanation" role="status" aria-live="polite" aria-atomic="true"><p id="trace-explanation">Submit your input to start.</p><code id="trace-values">No values loaded</code></div>
+            <div class="playback-controls"><button id="trace-play" type="button" aria-pressed="false" disabled>Play</button><button id="trace-previous" class="secondary-button" type="button" disabled>Previous</button><button id="trace-next" class="secondary-button" type="button" disabled>Next</button><button id="trace-reset" class="secondary-button" type="button" disabled>Reset</button><label for="trace-speed">Speed <select id="trace-speed" disabled><option value="0.5">0.5x</option><option value="1" selected>1x</option><option value="2">2x</option><option value="4">4x</option></select></label></div>
+            <label class="scrubber-label" for="trace-progress">Move to a step</label><input id="trace-progress" type="range" min="0" max="0" value="0" disabled>
+            <p class="helper-text">Intervals use [start, finish); equal finishes keep input order. This built-in walkthrough runs locally without Ollama.</p>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer"><a class="brand" href="#top">AlgoX<span class="accent-pink" aria-hidden="true">_</span></a></footer>
+    </div>
+  </body>
+</html>

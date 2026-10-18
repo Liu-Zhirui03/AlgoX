@@ -33,4 +33,27 @@ input/state shape can be registered without changing `main.py`.
 It verifies exact swaps, pivot placement, buffer appends (including left-first
 ties), copy-back, value preservation, and independent frame lists.
 `test_algorithms_api.py` also covers both defaults, custom inputs, sample syntax,
-compatibility routes, and input rejection. The suite now contains 23 tests.
+compatibility routes, and input rejection. The full suite now contains 43 tests.
+
+`test_search.py` exhaustively checks short sorted inputs and first occurrences,
+binary bound transitions, hash construction across bucket counts, negative
+values, collisions, missing targets, original indexes, and independent snapshots.
+Search API tests cover defaults/aliases, safe-integer boundaries, duplicate hits,
+misses, invalid targets, unsorted binary input, and invalid bucket counts.
+
+`test_greedy_graphs.py` checks all 729 four-node graph configurations with absent,
+negative, or positive edges. MST results are compared with exhaustive forest
+selection; Dijkstra uses nonnegative variants and an independent Floyd-Warshall
+oracle. Checks also cover greedy choices, cycle rejection, path weights, settled
+distances, isolated nodes, zero weights, ties, and independent snapshots.
+Graph API tests cover defaults, aliases, disconnected graphs, singleton graphs,
+invalid labels/endpoints/start nodes, duplicate edges, and weight limits/types.
+
+`test_greedy_choices.py` checks Huffman prefix codes, exact tree paths, merge
+choices and optimal bit cost against exhaustive pair merging for short frequency
+lists. Activity schedules are compared with exhaustive compatible subsets.
+Fractional knapsack is compared with independent vertex enumeration using exact
+rational arithmetic. It also checks capacity/fraction constraints, tie ordering,
+decisions, unchanged inputs, and independent nested snapshots. API tests cover
+defaults, aliases, singleton/max-size inputs, zero capacity, and invalid types,
+counts, labels, frequencies, intervals, weights, values, and capacities.

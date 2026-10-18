@@ -19,6 +19,9 @@ This repository is AlgoX, the Adaptive Generative Algorithm Visualizer.
 - Do not install dependencies, scaffold a framework, or add application features
   until the user requests that stage.
 - Preserve unrelated work and keep changes focused and reviewable.
+- Keep the root `README.md` focused on the project overview, setup, shared
+  architecture, and documentation links. Put individual algorithm details,
+  input examples, and implementation explanations in relevant folder docs.
 - Algorithm library cards must omit the feature-summary line
   "Python example / Your input / Live Canvas playback" and similar feature
   lists. Apply this to every existing and future algorithm card.

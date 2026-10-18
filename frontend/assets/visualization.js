@@ -1,6 +1,7 @@
 const algorithmTitle = document.querySelector("[data-algorithm-id]").dataset.algorithmTitle;
 const traceCanvas = document.querySelector("#trace-canvas");
-const bars = new CanvasBars(traceCanvas);
+const renderMode = document.querySelector("[data-algorithm-id]").dataset.renderer;
+const bars = renderMode === "array-bars" ? new CanvasBars(traceCanvas) : new SearchCanvas(traceCanvas, renderMode);
 const playButton = document.querySelector("#trace-play");
 const previousButton = document.querySelector("#trace-previous");
 const nextButton = document.querySelector("#trace-next");
@@ -28,7 +29,15 @@ const player = new TracePlayer((step, state, animate) => {
   stepCount.textContent = empty ? "No trace loaded" : `Step ${state.index + 1} / ${state.steps.length}`;
   actionLabel.textContent = step ? step.action.replaceAll("_", " ").toUpperCase() : "WAITING";
   explanation.textContent = step?.explanation || "Submit your numbers above to generate a fresh walkthrough.";
-  currentValues.textContent = step ? JSON.stringify(step.stateData) : "No values loaded";
+  if (!step) currentValues.textContent = "No values loaded";
+  else if (Array.isArray(step.stateData)) currentValues.textContent = JSON.stringify(step.stateData);
+  else {
+    const data = step.stateData;
+    const summary = renderMode === "binary-search" ?
+      `Active bounds: ${data.low}..${data.high}${data.candidate === null ? "" : ` / Candidate index: ${data.candidate}`}` :
+      data.buckets.map((chain, index) => `[${index}] ${chain.length ? chain.map(entry => `${entry.value} (index ${entry.index})`).join(" > ") : "empty"}`).join("; ");
+    currentValues.textContent = `Input: ${JSON.stringify(data.values)} / Target: ${data.target} / ${summary}`;
+  }
   const bufferText = document.querySelector("#trace-buffer");
   if (bufferText) {
     bufferText.hidden = !Array.isArray(step?.buffer);
@@ -36,7 +45,7 @@ const player = new TracePlayer((step, state, animate) => {
   }
   document.querySelector("#trace-comparisons").textContent = state.steps.slice(0, state.index + 1).filter(item => item.action === "compare").length;
   document.querySelector("#trace-swaps").textContent = state.steps.slice(0, state.index + 1).filter(item => item.action === (traceCanvas.dataset.metricAction || "swap")).length;
-  traceCanvas.setAttribute("aria-label", step ? `${algorithmTitle} ${step.action}. Values: ${step.stateData.join(", ")}` : `${algorithmTitle} visualization awaiting input`);
+  traceCanvas.setAttribute("aria-label", step ? `${algorithmTitle}: ${step.explanation}` : `${algorithmTitle} visualization awaiting input`);
 });
 playButton.addEventListener("click", () => player.toggle());
 previousButton.addEventListener("click", () => player.seek(player.index - 1));

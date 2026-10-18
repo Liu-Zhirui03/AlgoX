@@ -46,5 +46,38 @@ integer-array input; other data structures need suitable controls and renderers.
 Quick Sort uses pivot and active-range overlays. Merge Sort enables a Canvas
 buffer row with `data-show-buffer="true"`; its operation counter counts buffer
 appends via `data-metric-action="take"`. Buffer contents are also shown as text
-under the frame explanation. Only the three working library entries link to
-playgrounds; both searches remain planned.
+under the frame explanation. All five first-library entries link to working playgrounds.
+
+`binary-search.html` and `hash-search.html` use `assets/search.js` for number,
+target, and bucket-count validation, requests, results, and copying. They share
+`visualization.js` and `playback.js` with the sorts. `assets/search-renderer.js`
+draws binary bounds/midpoint/candidate cells or hash buckets and collision chains.
+A text summary mirrors each frame, and long inputs scroll inside the Canvas frame.
+Changing any search input pauses playback. Missing targets remain replayable.
+
+`dijkstra.html` and `minimum-spanning-tree.html` share graph controls in
+`assets/graph.js`, Canvas rendering in `assets/graph-renderer.js`, and playback
+wiring in `assets/graph-visualization.js`. The latter reuses `TracePlayer`.
+The MST page can be opened at `/algorithms/kruskal` or `/algorithms/prim`, with
+the corresponding selector default. The first Greedy library entries link to
+these playgrounds; remaining Greedy entries stay non-interactive and planned.
+
+Graph input uses a node-label list and one weighted edge per line, such as
+`A B 4`. The start input is hidden for Kruskal. Nodes keep a fixed circular
+layout through playback, edges display input IDs and weights, and current,
+selected, and rejected edges have distinct styles. Dijkstra adds distance labels;
+text summaries mirror distances/predecessors or forest components and candidates.
+Long graph drawings scroll inside their own frame on narrow screens.
+
+The remaining Greedy pages are `huffman.html`, `activity-selection.html`, and
+`fractional-knapsack.html`. They share custom-row parsing and code/result handling
+in `assets/greedy.js`, a mode-specific renderer in `assets/greedy-renderer.js`, and
+playback wiring in `assets/greedy-visualization.js` using the existing TracePlayer.
+
+Huffman renders a forest and its 0/1 branches as minimum roots merge; assigned
+codes appear beneath leaves. Activity Selection displays interval lanes ordered
+by finish, with a last-finish guide and selected/rejected colors. Knapsack shows
+a capacity bar and fractions taken for each item in ratio order. Frame summaries
+mirror all three visuals as text. Editing inputs pauses playback. The library
+keeps categories closed by default, omits counts and feature summaries, and links
+to all completed Greedy entries.
